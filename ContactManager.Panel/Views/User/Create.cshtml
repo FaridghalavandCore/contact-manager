@@ -1,0 +1,66 @@
+﻿
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+@{
+    ViewData["Title"] = "Create";
+}
+<div class="text-center">
+    <h1>ایجاد کاربر</h1>
+
+
+    <hr />
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <section class="create-user">
+                <form class="create-user">
+                    <div class="form-group">
+                        <label class="control-label"> نام</label>
+                        <input name="FirstName" class="form-control" />
+                        <span class="first-name text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">نام خانوادگی</label>
+                        <input name="LastName" class="form-control" />
+                        <span class="last-name text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">موبایل</label>
+                        <input name="PhoneNumber" class="form-control" />
+                        <span class="phoneNumber text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">ایمیل</label>
+                        <input name="Email" class="form-control" />
+                        <span class="email"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">رمز عبور</label>
+                        <input name="Password" class="form-control" />
+                        <span class="password text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <button class="create-user btn btn-primary"> ثبت </button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+</div>
+
+
+
+
+@section Scripts {
+    <script src="~/js/User/create-user-contact.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            $("section.create-user").createUserContact({
+                ApiUrl: "@Configuration["Api:Url"]"
+            });
+        });
+
+    </script>
+
+}

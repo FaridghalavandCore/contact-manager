@@ -1,0 +1,1 @@
+dotnet ef migrations add Change_PasswordInContact --context ContactManagerContext --output-dir Migrations --startup-project=..\ContactManager.Panel\ContactManager.Panel.csproj
